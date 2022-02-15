@@ -1,13 +1,18 @@
 function _dtMusicDirection(_isSkiped){
 	/* ADDED FOR V2 */
-	_showHeading(1,7);
-	$("#Page_1_6").hide();
-	$("#Page_1_7").show();
+	
+var _slPrev = 5;	
+var _slCurrent = 6;	//Same for the next click function too need to update
+var _slNext = 7;
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
 
 	if(_isSkiped){
-		var tempArr = ["",0,1,6,"Performance in a Supporting Role(Male)","","",""];
-		selectedIds[5] = Array();
-		selectedIds[5].push(tempArr);
+		var tempArr = ["",0,1,_slCurrent,"Performance in a Supporting Role(Male)","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoSupportingRoleMale"]').prop('checked', false);
 		$('#dtSupportingRoleMale tbody tr').removeClass('rowSelected');
 		
@@ -58,8 +63,8 @@ function _dtMusicDirection(_isSkiped){
 			dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 			$row.addClass('rowSelected');
 		}		
-		 var _pageIndex = 7;
-		ResetselectedIDsIndex(_pageIndex-1);
+		 var _slCurrent = 6;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -68,8 +73,8 @@ function _dtMusicDirection(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 		 
  });
 }

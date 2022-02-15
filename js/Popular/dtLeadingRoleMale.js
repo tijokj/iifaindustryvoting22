@@ -1,14 +1,19 @@
 function _dtLeadingRoleMale(_isSkiped){
 	
-	/* ADDED FOR V2 */
-	_showHeading(1,4);
-	$("#Page_1_3").hide();
-	$("#Page_1_4").show();
+	
+	
+var _slPrev = 2;	
+var _slCurrent = 3;	//Same for the next click function too need to update
+var _slNext = 4;
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
 
 	if(_isSkiped){
-		var tempArr = ["",0,1,3,"Performance in a Leading Role(Female)","","",""];
-		selectedIds[2] = Array();
-		selectedIds[2].push(tempArr);
+		var tempArr = ["",0,1,_slCurrent,"Performance in a Leading Role(Female)","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoLeadingRoleFemale"]').prop('checked', false);
 		$('#dtLeadingRoleFemale tbody tr').removeClass('rowSelected');
 	}else{
@@ -59,8 +64,8 @@ function _dtLeadingRoleMale(_isSkiped){
 			$row.addClass('rowSelected');
 		}
 		
-		var _pageIndex = 4;
-		ResetselectedIDsIndex(_pageIndex-1);
+		var _slCurrent = 4;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -69,8 +74,8 @@ function _dtLeadingRoleMale(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 		 
  });
 }

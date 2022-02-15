@@ -1,16 +1,19 @@
 
 function _dtSupportingRoleFemale(_isSkiped){
 	
-	/* ADDED FOR V2 */
-	_showHeading(1,5);
-	$("#Page_1_4").hide();
-	$("#Page_1_5").show();
-	//$("#lnkSelected").html("POPULAR AWARDS 2020");
+	
+var _slPrev = 3;	
+var _slCurrent = 4;	//Same for the next click function too need to update
+var _slNext = 5;
 
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
+	
 	if(_isSkiped){
-		var tempArr = ["",0,1,4,"Performance in a Leading Role(Male)","","",""];
-		selectedIds[3] = Array();
-		selectedIds[3].push(tempArr);
+		var tempArr = ["",0,1,_slCurrent,"Performance in a Leading Role(Male)","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoLeadingRoleMale"]').prop('checked', false);
 		$('#dtLeadingRoleMale tbody tr').removeClass('rowSelected');
 	}
@@ -58,8 +61,8 @@ function _dtSupportingRoleFemale(_isSkiped){
 			dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 			$row.addClass('rowSelected');
 		}
-		 var _pageIndex = 5;
-		ResetselectedIDsIndex(_pageIndex-1);
+		 var _slCurrent = 4;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -68,8 +71,8 @@ function _dtSupportingRoleFemale(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 
  });
 }

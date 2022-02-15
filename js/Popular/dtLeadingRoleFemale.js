@@ -1,14 +1,17 @@
 function _dtLeadingRoleFemale(_isSkiped){
 	
-	/* ADDED FOR V2 */
-	_showHeading(1,3);
-	$("#Page_1_2").hide();
-	$("#Page_1_3").show();
+var _slPrev = 1;	
+var _slCurrent = 2;	//Same for the next click function too need to update
+var _slNext = 3;
 
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
+	
 	if(_isSkiped){
-		var tempArr = ["",0,1,2,"Direction","","",""];
-		selectedIds[1] = Array();
-		selectedIds[1].push(tempArr);
+		var tempArr = ["",0,1,_slCurrent,"Direction","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoDirection"]').prop('checked', false);
 		$('#dtDirection tbody tr').removeClass('rowSelected');
 	}else{
@@ -59,8 +62,8 @@ $('#dtLeadingRoleFemale tbody').on('click','input[type="checkbox"]', function (e
 			dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 			$row.addClass('rowSelected');
 		}	
-		 var _pageIndex = 3;
-		ResetselectedIDsIndex(_pageIndex-1);
+		 var _slCurrent = 3;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -69,9 +72,9 @@ $('#dtLeadingRoleFemale tbody').on('click','input[type="checkbox"]', function (e
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 			}));
 		 
-		if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
+		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
 		console.log(selectedIds);
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 
  });
 }

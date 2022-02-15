@@ -1,14 +1,18 @@
 function _dtLyrics(_isSkiped){
-	/* ADDED FOR V2 */
-	_showHeading(1,9);
-	$("#Page_1_8").hide();
-	$("#Page_1_9").show();
+
+var _slPrev = 8;	
+var _slCurrent = 9;	//Same for the next click function too need to update
+var _slNext = 10;
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
 
 	if(_isSkiped){
-		var tempArr = ["",0,1,8,"Best Story","","",""];
-		selectedIds[7] = Array();
-		selectedIds[7].push(tempArr);
-		$('input:checkbox[name="rdoBestStory"]').prop('checked', false);
+		var tempArr = ["",0,1,_slCurrent,"Best Story (Adapted)","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
+		$('input:checkbox[name="rdoBestStory2"]').prop('checked', false);
 		$('#dtBestStory tbody tr').removeClass('rowSelected');
 	}else{
 				
@@ -58,8 +62,8 @@ function _dtLyrics(_isSkiped){
 			$row.addClass('rowSelected');
 		}
 		
-		var _pageIndex = 9;
-		ResetselectedIDsIndex(_pageIndex-1);
+		var _slCurrent = 9;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -68,8 +72,8 @@ function _dtLyrics(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 		 
  });
 }

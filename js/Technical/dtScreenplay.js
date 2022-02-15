@@ -60,8 +60,8 @@ function _dtScreenplay(_isSkiped){
 			$row.addClass('rowSelected');
 		}	
 		
-		 var _pageIndex = 13;
-		ResetselectedIDsIndex(_pageIndex-1);
+		 var _slCurrent = 13;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -69,8 +69,8 @@ function _dtScreenplay(_isSkiped){
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Screenplay",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 		 
  });
 }

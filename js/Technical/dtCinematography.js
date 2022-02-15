@@ -16,17 +16,20 @@ if(_showDesc){
 	});
 }
 
-	/* ADDED FOR V2 */
-	_showHeading(1,12);
-	$("#Page_1_11").hide();
-	$("#Page_1_12").show();
-	
+var _slPrev = 11;	
+var _slCurrent = 12;	//Same for the next click function too need to update
+var _slNext = 13;
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
+
 	if(_isSkiped){
-		var tempArr = ["",0,1,11,"Playback Singer(Female)","","",""];
-		selectedIds[10] = Array();
-		selectedIds[10].push(tempArr);
-		$('input:checkbox[name="rdoPlaybackSingerFeMale"]').prop('checked', false);
-		$('#dtPlaybackSingerFeMale tbody tr').removeClass('rowSelected');
+		var tempArr = ["",0,1,_slCurrent,"Playback Singer(Male)","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
+		$('input:checkbox[name="rdoPlaybackSingerMale"]').prop('checked', false);
+		$('#dtPlaybackSingerMale tbody tr').removeClass('rowSelected');
 	}
 	
 	var dt_Table = $('#dtCinematography').DataTable( {
@@ -74,8 +77,8 @@ if(_showDesc){
 			$row.addClass('rowSelected');
 		}		
 		 
-		var _pageIndex = 12;
-		ResetselectedIDsIndex(_pageIndex-1);
+		var _slCurrent = 12;
+		ResetselectedIDsIndex(_slCurrent-1);
 		var selectedElement = Array();var _selItemCnt = 0;
 		$(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -83,8 +86,8 @@ if(_showDesc){
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Cinematography",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}		
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}		
 		 
  });
 }

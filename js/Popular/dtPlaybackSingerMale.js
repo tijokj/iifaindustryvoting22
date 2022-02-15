@@ -1,17 +1,22 @@
 function _dtPlaybackSingerMale(_isSkiped){
-	/* ADDED FOR V2 */
-	_showHeading(1,10);
-	$("#Page_1_9").hide();
-	$("#Page_1_10").show();
-	//$("#lnkSelected").html("POPULAR AWARDS 2020");
 	
-	if(_isSkiped){
-		var tempArr = ["",0,1,9,"Lyrics","","",""];
-		selectedIds[8] = Array();
-		selectedIds[8].push(tempArr);
-		$('input:checkbox[name="rdoLyrics"]').prop('checked', false);
-		$('#dtLyrics tbody tr').removeClass('rowSelected');
-	}
+
+var _slPrev = 10;	
+var _slCurrent = 11;	//Same for the next click function too need to update
+var _slNext = 12;
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
+
+if(_isSkiped){
+	var tempArr = ["",0,1,_slCurrent,"Playback Singer(FeMale)","","",""];
+	selectedIds[_slPrev] = Array();
+	selectedIds[_slPrev].push(tempArr);
+	$('input:checkbox[name="rdoPlaybackSingerFeMale"]').prop('checked', false);
+	$('#dtPlaybackSingerFeMale tbody tr').removeClass('rowSelected');
+}
+	
 
 	var dt_Table = $('#dtPlaybackSingerMale').DataTable( {
 		"dom": "<'row'<'col-sm-9'<'toolbar'>><'col-sm-3'f>><'row'<'col-sm-12'tr>>",
@@ -57,8 +62,8 @@ function _dtPlaybackSingerMale(_isSkiped){
 			$row.addClass('rowSelected');
 		}		
 		 
-		 var _pageIndex = 10;
-		ResetselectedIDsIndex(_pageIndex-1);
+		 var _slCurrent = 11;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -67,8 +72,8 @@ function _dtPlaybackSingerMale(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 		 
  });
 }

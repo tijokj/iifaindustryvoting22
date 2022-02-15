@@ -1,16 +1,24 @@
 function _dtPlaybackSingerFemale(_isSkiped){
-	/* ADDED FOR V2 */
-	_showHeading(1,11);
-	$("#Page_1_10").hide();
-	$("#Page_1_11").show();
+	
+
+var _slPrev = 9;	
+var _slCurrent = 10;	//Same for the next click function too need to update
+var _slNext = 11;
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
+
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Cinematography");
+	
 	if(_isSkiped){
-		var tempArr = ["",0,1,10,"Playback Singer(Male)","","",""];
-		selectedIds[9] = Array();
-		selectedIds[9].push(tempArr);
-		$('input:checkbox[name="rdoPlaybackSingerMale"]').prop('checked', false);
-		$('#dtPlaybackSingerMale tbody tr').removeClass('rowSelected');
+		var tempArr = ["",0,1,_slCurrent,"Lyrics","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
+		$('input:checkbox[name="rdoLyrics"]').prop('checked', false);
+		$('#dtLyrics tbody tr').removeClass('rowSelected');
 	}
+	
 	var dt_Table = $('#dtPlaybackSingerFemale').DataTable( {
 		"dom": "<'row'<'col-sm-9'<'toolbar'>><'col-sm-3'f>><'row'<'col-sm-12'tr>>",
 		//"initComplete": function(settings, json) {$('body').find('.dataTables_scrollBody').addClass("scrollbar");},
@@ -55,8 +63,8 @@ function _dtPlaybackSingerFemale(_isSkiped){
 			$row.addClass('rowSelected');
 		}
 		
-		 var _pageIndex = 11;
-		ResetselectedIDsIndex(_pageIndex-1);
+		 var _slCurrent = 10;
+		ResetselectedIDsIndex(_slCurrent-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -65,8 +73,8 @@ function _dtPlaybackSingerFemale(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
 		 
  });
 }

@@ -12,22 +12,23 @@ _arrPopularCategory[4] = 	"Performance in a Supporting Role (Female)";
 _arrPopularCategory[5] = 	"Performance in a Supporting Role (Male)";
 
 _arrPopularCategory[6] = 	"Music Direction";
-_arrPopularCategory[7] = 	"Best Story";
-_arrPopularCategory[8] = 	"Lyrics";
+_arrPopularCategory[7] = 	"Best Story (Original)";
+_arrPopularCategory[8] = 	"Best Story (Adapted)";
+_arrPopularCategory[9] = 	"Lyrics";
 
-_arrPopularCategory[9] = 	"Playback Singer (Male)";
 _arrPopularCategory[10] = 	"Playback Singer (Female)";
+_arrPopularCategory[11] = 	"Playback Singer (Male)";
 
-_arrPopularCategory[11]	= "Cinematography";
-_arrPopularCategory[12]	= "Screenplay";
-_arrPopularCategory[13]	= "Dialogue";
-_arrPopularCategory[14]	= "Editing";
-_arrPopularCategory[15]	= "Choreography";
-_arrPopularCategory[16]	= "Sound Design";
-_arrPopularCategory[17]	= "Sound Mixing";
-_arrPopularCategory[18]	= "Background Score";
-_arrPopularCategory[19]	= "Special Effects (Visuals)";
-_arrPopularCategory[20]	= "Summary";
+_arrPopularCategory[12]	= "Cinematography";
+_arrPopularCategory[13]	= "Screenplay";
+_arrPopularCategory[14]	= "Dialogue";
+_arrPopularCategory[15]	= "Editing";
+_arrPopularCategory[16]	= "Choreography";
+_arrPopularCategory[17]	= "Sound Design";
+_arrPopularCategory[18]	= "Sound Mixing";
+_arrPopularCategory[19]	= "Background Score";
+_arrPopularCategory[20]	= "Special Effects (Visuals)";
+_arrPopularCategory[21]	= "Summary";
 
 ResetselectedIDsIndex(0);
 ResetselectedIDsIndex(1);
@@ -49,6 +50,7 @@ ResetselectedIDsIndex(16);
 ResetselectedIDsIndex(17);
 ResetselectedIDsIndex(18);
 ResetselectedIDsIndex(19);
+ResetselectedIDsIndex(20);
 
 //console.log(selectedIds);
 
@@ -59,20 +61,21 @@ var dtLeadingRoleMale = filter(dtPopularAwards,4);
 var dtSupportingRoleFemale = filter(dtPopularAwards,5);
 var dtSupportingRoleMale = filter(dtPopularAwards,6);
 var dtMusicDirection = filter(dtPopularAwards,7);
-var dtBestStory = filter(dtPopularAwards,8);
-var dtLyrics = filter(dtPopularAwards,9);
-var dtPlaybackSingerMale = filter(dtPopularAwards,10);
-var dtPlaybackSingerFemale = filter(dtPopularAwards,11);
+var dtBestStory_1 = filter(dtPopularAwards,8);
+var dtBestStory_2 = filter(dtPopularAwards,9);
+var dtLyrics = filter(dtPopularAwards,10);
+var dtPlaybackSingerMale = filter(dtPopularAwards,11);
+var dtPlaybackSingerFemale = filter(dtPopularAwards,12);
 
-var dtCinematography = filter(dtTechnicalAwards,12);
-var dtScreenplay = filter(dtTechnicalAwards,13);
-var dtDialogue = filter(dtTechnicalAwards,14);
-var dtEditing = filter(dtTechnicalAwards,15);
-var dtChoreography = filter(dtTechnicalAwards,16);
-var dtSoundDesign = filter(dtTechnicalAwards,17);
-var dtSoundMixing = filter(dtTechnicalAwards,18);
-var dtBackgroundScore = filter(dtTechnicalAwards,19);
-var dtSpecialEffects = filter(dtTechnicalAwards,20);
+var dtCinematography = filter(dtTechnicalAwards,13);
+var dtScreenplay = filter(dtTechnicalAwards,14);
+var dtDialogue = filter(dtTechnicalAwards,15);
+var dtEditing = filter(dtTechnicalAwards,16);
+var dtChoreography = filter(dtTechnicalAwards,17);
+var dtSoundDesign = filter(dtTechnicalAwards,18);
+var dtSoundMixing = filter(dtTechnicalAwards,19);
+var dtBackgroundScore = filter(dtTechnicalAwards,20);
+var dtSpecialEffects = filter(dtTechnicalAwards,21);
 
 $(document).ready(function(){
 	$(".pages").hide();
@@ -113,26 +116,28 @@ $(document).ready(function(){
 	$("#btnPOPSkip_1_5").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSupportingRoleMale(true);	_showHeading(1,6);});$("#btnPOPNext_1_5").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[4],5)){return;} 		_dtSupportingRoleMale(false);	_showHeading(1,6);});	$("#btnPOPSubmit_1_5").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(5,_canSkipThis);});
 	
 	$("#btnPOPSkip_1_6").click(function(e){e.preventDefault(); $(".next_click").html("");_dtMusicDirection(true);		_showHeading(1,7);}); $("#btnPOPNext_1_6").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[5],6)){return;} 		_dtMusicDirection(false);		_showHeading(1,7);});	$("#btnPOPSubmit_1_6").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(6,_canSkipThis);});
-	$("#btnPOPSkip_1_7").click(function(e){e.preventDefault(); $(".next_click").html("");_dtBestStory(true);			_showHeading(1,8);}); $("#btnPOPNext_1_7").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[6],7)){return;} 		_dtBestStory(false);			_showHeading(1,8);});	$("#btnPOPSubmit_1_7").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(7,_canSkipThis);});
 	
-	$("#btnPOPSkip_1_8").click(function(e){e.preventDefault(); $(".next_click").html("");_dtLyrics(true);				_showHeading(1,9);}); $("#btnPOPNext_1_8").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[7],8)){return;} 		_dtLyrics(false);				_showHeading(1,9);});			$("#btnPOPSubmit_1_8").click(function(e){e.preventDefault(); $(".next_click").html("");	_SummaryPopularCategory(8,_canSkipThis);});
+	$("#btnPOPSkip_1_7").click(function(e){e.preventDefault(); $(".next_click").html("");_dtBestStory_1(true);			_showHeading(1,8);}); $("#btnPOPNext_1_7").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[6],7)){return;} 		_dtBestStory_1(false);			_showHeading(1,8);});	$("#btnPOPSubmit_1_7").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(7,_canSkipThis);});
+	$("#btnPOPSkip_1_8").click(function(e){e.preventDefault(); $(".next_click").html("");_dtBestStory_2(true);			_showHeading(1,9);}); $("#btnPOPNext_1_8").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[7],8)){return;} 		_dtBestStory_2(false);			_showHeading(1,9);});	$("#btnPOPSubmit_1_8").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(8,_canSkipThis);});
 	
-	$("#btnPOPSkip_1_9").click(function(e){e.preventDefault(); $(".next_click").html("");_dtPlaybackSingerMale(true);	_showHeading(1,10);});$("#btnPOPNext_1_9").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[8],9)){return;} 		_dtPlaybackSingerMale(false);	_showHeading(1,10);});$("#btnPOPSubmit_1_9").click(function(e){e.preventDefault(); $(".next_click").html("");		_SummaryPopularCategory(9,_canSkipThis);});
-	$("#btnPOPSkip_1_10").click(function(e){e.preventDefault(); $(".next_click").html("");_dtPlaybackSingerFemale(true);_showHeading(1,11);}); $("#btnPOPNext_1_10").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[9],10)){return;} 	_dtPlaybackSingerFemale(false);_showHeading(1,11);});$("#btnPOPSubmit_1_10").click(function(e){e.preventDefault(); $(".next_click").html("");		_SummaryPopularCategory(10,_canSkipThis);});
+	$("#btnPOPSkip_1_9").click(function(e){e.preventDefault(); $(".next_click").html("");_dtLyrics(true);				_showHeading(1,10);}); $("#btnPOPNext_1_9").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[8],9)){return;} 		_dtLyrics(false);				_showHeading(1,10);});  $("#btnPOPSubmit_1_9").click(function(e){e.preventDefault(); $(".next_click").html("");	_SummaryPopularCategory(9,_canSkipThis);});
+	
+	$("#btnPOPSkip_1_10").click(function(e){e.preventDefault(); $(".next_click").html("");_dtPlaybackSingerFemale(true);_showHeading(1,11);});$("#btnPOPNext_1_10").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[9],10)){return;} 		_dtPlaybackSingerFemale(false);	_showHeading(1,11);});$("#btnPOPSubmit_1_10").click(function(e){e.preventDefault(); $(".next_click").html(""); _SummaryPopularCategory(10,_canSkipThis);});
+	$("#btnPOPSkip_1_11").click(function(e){e.preventDefault(); $(".next_click").html("");_dtPlaybackSingerMale(true);  _showHeading(1,12);}); $("#btnPOPNext_1_11").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[10],11)){return;} 	_dtPlaybackSingerMale(false);	_showHeading(1,12);});$("#btnPOPSubmit_1_11").click(function(e){e.preventDefault(); $(".next_click").html(""); _SummaryPopularCategory(11,_canSkipThis);});
 	
 	//Can put only one vote
-	$("#btnPOPSkip_1_11").click(function(e){e.preventDefault(); $(".next_click").html("");_dtCinematography(true,true);	_showHeading(1,12);}); $("#btnPOPNext_1_11").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[10],11)){return;} 	_dtCinematography(false,true);_showHeading(1,12);});$("#btnPOPSubmit_1_11").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(11,_canSkipThis);});
-	$("#btnPOPSkip_1_12").click(function(e){e.preventDefault(); $(".next_click").html("");_dtScreenplay(true);			_showHeading(1,13);}); $("#btnPOPNext_1_12").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[11],12)){return;} 	_dtScreenplay(false);_showHeading(1,13);});$("#btnPOPSubmit_1_12").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(12,_canSkipThis);});
-	$("#btnPOPSkip_1_13").click(function(e){e.preventDefault(); $(".next_click").html("");_dtDialogue(true);			_showHeading(1,14);}); $("#btnPOPNext_1_13").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[12],13)){return;} 	_dtDialogue(false);_showHeading(1,14);});$("#btnPOPSubmit_1_13").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(13,_canSkipThis);});
-	$("#btnPOPSkip_1_14").click(function(e){e.preventDefault(); $(".next_click").html("");_dtEditing(true);				_showHeading(1,15);}); $("#btnPOPNext_1_14").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[13],14)){return;} 	_dtEditing(false);_showHeading(1,15);});$("#btnPOPSubmit_1_14").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(14,_canSkipThis);});
-	$("#btnPOPSkip_1_15").click(function(e){e.preventDefault(); $(".next_click").html("");_dtChoreography(true);		_showHeading(1,16);}); $("#btnPOPNext_1_15").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[14],15)){return;} 	_dtChoreography(false);_showHeading(1,16);});$("#btnPOPSubmit_1_15").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(15,_canSkipThis);});
-	$("#btnPOPSkip_1_16").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSoundDesign(true);			_showHeading(1,17);}); $("#btnPOPNext_1_16").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[15],16)){return;} 	_dtSoundDesign(false);_showHeading(1,17);});$("#btnPOPSubmit_1_16").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(16,_canSkipThis);});
+	$("#btnPOPSkip_1_12").click(function(e){e.preventDefault(); $(".next_click").html("");_dtCinematography(true,true);	_showHeading(1,13);}); $("#btnPOPNext_1_12").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[11],12)){return;} 	_dtCinematography(false,true);_showHeading(1,13);});$("#btnPOPSubmit_1_12").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(12,_canSkipThis);});
+	$("#btnPOPSkip_1_13").click(function(e){e.preventDefault(); $(".next_click").html("");_dtScreenplay(true);			_showHeading(1,14);}); $("#btnPOPNext_1_13").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[12],13)){return;} 	_dtScreenplay(false);		  _showHeading(1,14);});$("#btnPOPSubmit_1_13").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(13,_canSkipThis);});
+	$("#btnPOPSkip_1_14").click(function(e){e.preventDefault(); $(".next_click").html("");_dtDialogue(true);			_showHeading(1,15);}); $("#btnPOPNext_1_14").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[13],14)){return;} 	_dtDialogue(false);			  _showHeading(1,15);});$("#btnPOPSubmit_1_14").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(14,_canSkipThis);});
+	$("#btnPOPSkip_1_15").click(function(e){e.preventDefault(); $(".next_click").html("");_dtEditing(true);				_showHeading(1,16);}); $("#btnPOPNext_1_15").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[14],15)){return;} 	_dtEditing(false);			  _showHeading(1,16);});$("#btnPOPSubmit_1_15").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(15,_canSkipThis);});
+	$("#btnPOPSkip_1_16").click(function(e){e.preventDefault(); $(".next_click").html("");_dtChoreography(true);		_showHeading(1,17);}); $("#btnPOPNext_1_16").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[15],16)){return;} 	_dtChoreography(false);		  _showHeading(1,17);});$("#btnPOPSubmit_1_16").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(16,_canSkipThis);});
+	$("#btnPOPSkip_1_17").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSoundDesign(true);			_showHeading(1,18);}); $("#btnPOPNext_1_17").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[16],17)){return;} 	_dtSoundDesign(false);		  _showHeading(1,18);});$("#btnPOPSubmit_1_17").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(17,_canSkipThis);});
+																																																																													  
+	$("#btnPOPSkip_1_18").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSoundMixing(true);			_showHeading(1,19);}); $("#btnPOPNext_1_18").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[17],18)){return;} 	_dtSoundMixing(false);		  _showHeading(1,19);});$("#btnPOPSubmit_1_18").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(18,_canSkipThis);});
+	$("#btnPOPSkip_1_19").click(function(e){e.preventDefault(); $(".next_click").html("");_dtBackgroundScore(true);		_showHeading(1,20);}); $("#btnPOPNext_1_19").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[18],19)){return;} 	_dtBackgroundScore(false);	  _showHeading(1,20);});$("#btnPOPSubmit_1_19").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(19,_canSkipThis);});
+	$("#btnPOPSkip_1_20").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSpecialEffects(true);		_showHeading(1,21);}); $("#btnPOPNext_1_20").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[19],20)){return;} 	_dtSpecialEffects(false);	  _showHeading(1,21);});$("#btnPOPSubmit_1_20").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(20,_canSkipThis);});
 	
-	$("#btnPOPSkip_1_17").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSoundMixing(true);			_showHeading(1,18);}); $("#btnPOPNext_1_17").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[16],17)){return;} 		_dtSoundMixing(false);_showHeading(1,18);});$("#btnPOPSubmit_1_17").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(17,_canSkipThis);});
-	$("#btnPOPSkip_1_18").click(function(e){e.preventDefault(); $(".next_click").html("");_dtBackgroundScore(true);		_showHeading(1,19);}); $("#btnPOPNext_1_18").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[17],18)){return;} 	_dtBackgroundScore(false);_showHeading(1,19);});$("#btnPOPSubmit_1_18").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(18,_canSkipThis);});
-	$("#btnPOPSkip_1_19").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSpecialEffects(true);		_showHeading(1,20);}); $("#btnPOPNext_1_19").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[18],19)){return;} 	_dtSpecialEffects(false);_showHeading(1,20);});$("#btnPOPSubmit_1_19").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(19,_canSkipThis);});
-	
-	$("#btnPOPSkip_1_20").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory2(20,_canSkipThis);}); $("#btnPOPNext_1_20").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[19],20)){return;} _SummaryPopularCategory(20,_cannotSkipThis);_showHeading(1,21);});$("#btnPOPSubmit_1_20").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(20,_canSkipThis);});
+	$("#btnPOPSkip_1_21").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory2(21,_canSkipThis);}); $("#btnPOPNext_1_21").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[20],21)){return;} _SummaryPopularCategory(20,_cannotSkipThis);_showHeading(1,21);});$("#btnPOPSubmit_1_21").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(21,_canSkipThis);});
 	
 	//Ends Page moving scripts	
 	
@@ -213,7 +218,7 @@ function _verification(_array,_pageIndex){
 	var _requireTwo = false;
 	//if((_pageIndex <= 11) && (_array.length < 1)){_requireTwo = true;}
 	var _alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";
-	if(_pageIndex > 11){_alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";}
+	if(_pageIndex > 12){_alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";}
 	
 	//if((_pageIndex < 8) && (_array[0][1] == 0) || (_requireTwo) || (_array.length >= 3)){
 	//console.log(_pageIndex);
@@ -231,7 +236,7 @@ function _verification(_array,_pageIndex){
 
 function _blockMultipleCheck(_array,_pageIndex,_selItemCnt){
 	var _alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";
-	if(_pageIndex > 11){_alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";}
+	if(_pageIndex > 12){_alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";}
 	$(".next_click").html("<span class='small'>"+_alertMsgs+"</span>");
 	$.notify(_alertMsgs);
 	$('#errAudio')[0].play();
@@ -247,19 +252,19 @@ function _blockMultipleCheck(_array,_pageIndex,_selItemCnt){
 // }
 
 function _showHeading(_category,_pageIndex){
-	if(_pageIndex<=11)
+	if(_pageIndex<=12)
 		$("#lnkSelected").html("POPULAR AWARDS 2020");
 	else
 		$("#lnkSelected").html("TECHNICAL AWARDS 2020");
 		
 	//Shows alert always 
 	//for Popular - Updated for V2
-	if(_pageIndex>20){
+	if(_pageIndex>21){
 		$(".next_click").html("");
 		$("div.toolbar2").html("Summary");
 	}else{
 		var _alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";
-		if(_pageIndex > 11){_alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";}
+		if(_pageIndex > 12){_alertMsgs = "PLEASE SELECT AN ENTRY (Only One)";}
 		$(".next_click").html("<span class='small'>"+_alertMsgs+"</span>");
 		$("div.toolbar2").html(_pageIndex + ". "+ _arrPopularCategory[_pageIndex-1]);
 	}
@@ -268,7 +273,7 @@ function _showHeading(_category,_pageIndex){
 
 function _editItem(_recID,_category,_pageIndex){
 	
-	if(_pageIndex<=11)
+	if(_pageIndex<=12)
 		$("#lnkSelected").html("POPULAR AWARDS 2020");
 	else
 		$("#lnkSelected").html("TECHNICAL AWARDS 2020");
@@ -295,23 +300,25 @@ function divertEditOption(_pageIndex){
 	if(_pageIndex==5)_dtSupportingRoleFemale(false);
 	if(_pageIndex==6)_dtSupportingRoleMale(false);
 	if(_pageIndex==7)_dtMusicDirection(false);
-	if(_pageIndex==8)_dtBestStory(false);
 	
-	if(_pageIndex==9)_dtLyrics(false);
+	if(_pageIndex==8)_dtBestStory_1(false);
+	if(_pageIndex==9)_dtBestStory_2(false);
 	
-	if(_pageIndex==10)_dtPlaybackSingerMale(false);
-	if(_pageIndex==11)_dtPlaybackSingerFemale(false);
+	if(_pageIndex==10)_dtLyrics(false);
+	
+	if(_pageIndex==11)_dtPlaybackSingerMale(false);
+	if(_pageIndex==12)_dtPlaybackSingerFemale(false);
 
 	// TECHNICAL CATEGORY
-	if(_pageIndex==12)_dtCinematography(false,false);
-	if(_pageIndex==13)_dtScreenplay(false);
-	if(_pageIndex==14)_dtDialogue(false);
-	if(_pageIndex==15)_dtEditing(false);
-	if(_pageIndex==16)_dtChoreography(false);
-	if(_pageIndex==17)_dtSoundDesign(false);
-	if(_pageIndex==18)_dtSoundMixing(false);
-	if(_pageIndex==19)_dtBackgroundScore(false);
-	if(_pageIndex==20)_dtSpecialEffects(false);
+	if(_pageIndex==13)_dtCinematography(false,false);
+	if(_pageIndex==14)_dtScreenplay(false);
+	if(_pageIndex==15)_dtDialogue(false);
+	if(_pageIndex==16)_dtEditing(false);
+	if(_pageIndex==17)_dtChoreography(false);
+	if(_pageIndex==18)_dtSoundDesign(false);
+	if(_pageIndex==19)_dtSoundMixing(false);
+	if(_pageIndex==20)_dtBackgroundScore(false);
+	if(_pageIndex==21)_dtSpecialEffects(false);
 	
 }
 

@@ -4,7 +4,7 @@ console.log(_showDesc);
 if(_showDesc){
 	$.alert({
 		title:'Popular Awards',
-		content: "<ol class='text-left text-sm'><li>Best Picture</li><li>Direction</li><li>Leading Role-Female</li><li>Leading Role-Male</li><li>Supporting Role-Female</li><li>Supporting Role-Male</li><li>Music Direction</li><li>Best Story</li><li>Lyrics (<i>with Name of Song</i>)</li><li>Playback Singer-Male (<i>with Name of Song</i>)</li><li>Playback Singer-Female (<i>with Name of Song</i>)</li></ol>",
+		content: "<ol class='text-left text-sm'><li>Best Picture</li><li>Direction</li><li>Leading Role-Female</li><li>Leading Role-Male</li><li>Supporting Role-Female</li><li>Supporting Role-Male</li><li>Music Direction</li><li>Best Story (Original)</li><li>Best Story (Adapted)</li><li>Lyrics (<i>with Name of Song</i>)</li><li>Playback Singer-Female (<i>with Name of Song</i>)</li><li>Playback Singer-Male (<i>with Name of Song</i>)</li></ol>",
 		confirmButton:'Proceed',
 		confirmButtonClass:'btn-warning',
 		columnClass:'col-md-push-3 col-md-6 text-sm',
@@ -63,8 +63,8 @@ if(_showDesc){
 			dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 			$row.addClass('rowSelected');
 		}
-		var _pageIndex = 1;
-		ResetselectedIDsIndex(_pageIndex-1);
+		var _slCurrent = 1;
+		ResetselectedIDsIndex(_slCurrent-1);
 		var selectedElement = Array();var _selItemCnt = 0;
 
 	//$("#dtBestPicture .checkbox:checked").map(function() {
@@ -75,9 +75,9 @@ if(_showDesc){
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Best Picture",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		}));
-		if(selectedElement.length>0)selectedIds[_pageIndex-1]=selectedElement;
+		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
 		console.log(selectedIds);
-		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_pageIndex);return false;}
+		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
  });
 	 
 }
