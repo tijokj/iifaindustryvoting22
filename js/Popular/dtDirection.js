@@ -1,9 +1,8 @@
 function _dtDirection(_isSkiped){
 	
-	
 var _slPrev = 0;	
-var _slCurrent = 1;	//Same for the next click function too need to update
-var _slNext = 2;
+var _slCurrent = 1;	
+var _slNext = 2;	//Same for the next click function too need to update
 
 _showHeading(1,_slNext);
 $("#Page_1_"+_slCurrent).hide();
@@ -62,8 +61,8 @@ $('#dtDirection tbody').on('click','input[type="checkbox"]', function (e) {
 			$row.addClass('rowSelected');
 		}
 		
-		var _slCurrent = 2;
-		ResetselectedIDsIndex(_slCurrent-1);
+		var _slNext = 2;
+		ResetselectedIDsIndex(_slNext-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -71,9 +70,9 @@ $('#dtDirection tbody').on('click','input[type="checkbox"]', function (e) {
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Direction",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 			}));
-		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		 if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
 		 console.log(selectedIds);
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 		 
  });
  

@@ -1,8 +1,8 @@
 function _dtSupportingRoleMale(_isSkiped){
 	
 var _slPrev = 4;	
-var _slCurrent = 5;	//Same for the next click function too need to update
-var _slNext = 6;
+var _slCurrent = 5;	
+var _slNext = 6;	//Same for the next click function too need to update
 
 _showHeading(1,_slNext);
 $("#Page_1_"+_slCurrent).hide();
@@ -61,8 +61,8 @@ $("#Page_1_"+_slNext).show();
 			dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 			$row.addClass('rowSelected');
 		}
-		 var _slCurrent = 6;
-		ResetselectedIDsIndex(_slCurrent-1);
+		 var _slNext = 6;
+		ResetselectedIDsIndex(_slNext-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -71,8 +71,8 @@ $("#Page_1_"+_slNext).show();
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 		 
  });
 }

@@ -15,9 +15,11 @@ if(_showDesc){
 		theme:'material', //'material','bootstrap',black,white,supervan
 	});
 }
-	/* ADDED FOR V2 */
-	_showHeading(1,1);
-	$("#Page_1_1").show();
+
+	var _slNext = 1; //Same for the next click function too need to update
+
+	_showHeading(1,_slNext);
+	$("#Page_1_"+_slNext).show();
 	
 	var dt_Table = $('#dtBestPicture').DataTable( {
 		"dom": "<'row'<'col-sm-9'<'toolbar'>><'col-sm-3'f>><'row'<'col-sm-12'tr>>",
@@ -63,8 +65,8 @@ if(_showDesc){
 			dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 			$row.addClass('rowSelected');
 		}
-		var _slCurrent = 1;
-		ResetselectedIDsIndex(_slCurrent-1);
+		var _slNext = 1;
+		ResetselectedIDsIndex(_slNext-1);
 		var selectedElement = Array();var _selItemCnt = 0;
 
 	//$("#dtBestPicture .checkbox:checked").map(function() {
@@ -75,9 +77,9 @@ if(_showDesc){
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Best Picture",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		}));
-		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
+		if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
 		console.log(selectedIds);
-		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
  });
 	 
 }

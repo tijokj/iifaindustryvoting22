@@ -1,8 +1,8 @@
 function _dtBestStory_2(_isSkiped){
 	
 var _slPrev = 7;	
-var _slCurrent = 8;	//Same for the next click function too need to update
-var _slNext = 9;	
+var _slCurrent = 8;	
+var _slNext = 9;	//Same for the next click function too need to update
 	
 	/* ADDED FOR V2 */
 	_showHeading(1,_slNext);
@@ -64,8 +64,8 @@ var _slNext = 9;
 			$(this).addClass('rowSelected');
 		}		
 		
-		var _slCurrent = 8;
-		ResetselectedIDsIndex(_slCurrent-1);
+		var _slNext = 9;
+		ResetselectedIDsIndex(_slNext-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -74,8 +74,8 @@ var _slNext = 9;
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
- 		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+ 		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 
  });
 }

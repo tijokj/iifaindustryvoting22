@@ -2,8 +2,8 @@ function _dtPlaybackSingerMale(_isSkiped){
 	
 
 var _slPrev = 10;	
-var _slCurrent = 11;	//Same for the next click function too need to update
-var _slNext = 12;
+var _slCurrent = 11;
+var _slNext = 12; //Same for the next click function too need to update
 
 _showHeading(1,_slNext);
 $("#Page_1_"+_slCurrent).hide();
@@ -62,8 +62,8 @@ if(_isSkiped){
 			$row.addClass('rowSelected');
 		}		
 		 
-		 var _slCurrent = 11;
-		ResetselectedIDsIndex(_slCurrent-1);
+		 var _slNext = 12;
+		ResetselectedIDsIndex(_slNext-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -72,8 +72,8 @@ if(_isSkiped){
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
 		 
-		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		 if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 		 
  });
 }
