@@ -1,9 +1,5 @@
 <?php
 $mysql_hostname = "localhost";
-//$mysql_hostname = "148.66.138.105";
-/* $mysql_user = "wizadmin";
-$mysql_password = "6SJnk6{T7dO0";
-$mysql_database = "wizapp2020"; */
 
 //UPDATE `iifavoters` SET `v_AccessCode`=LEFT(MD5(RAND()), 6);
 //UPDATE `iifavoters` SET `v_Name`='',`v_SurName`='',`v_IDCardName`='0.png',`v_submittedon`=0,`v_IsActivated`=1,`v_LoginTime`=0
