@@ -51,7 +51,7 @@
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">
-						IIFA AWARDS 2020
+						IIFA AWARDS 2022
 					</a>
 				</div>
 				
@@ -69,10 +69,10 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-2 col-md-3 text-center">
-					<img src="images/logo-m.jpg" class="img-responsive" style="width:125px;height:auto;" alt="IIFA AWARDS 2020">
+					<img src="images/logo-m.jpg" class="img-responsive" style="width:125px;height:auto;" alt="IIFA AWARDS 2022">
 				</div>
 				<div class="col-sm-6 col-md-6 text-center">
-					<a class="gradiant-txt" id="lnkSelected">IIFA AWARDS 2020</a>
+					<a class="gradiant-txt" id="lnkSelected">IIFA AWARDS 2022</a>
 				</div>
 			</div>
 			

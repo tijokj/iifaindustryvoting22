@@ -8,7 +8,7 @@ function _dtSpecialEffects(_isSkiped){
 	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Special Effects");
 	if(_isSkiped){
-		var tempArr = ["",0,1,19,"Background Score","","",""];
+		var tempArr = ["",0,1,_slCurrent,"Background Score","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoBackgroundScore"]').prop('checked', false);

@@ -13,8 +13,8 @@ if(_isSkiped){
 	var tempArr = ["",0,1,_slCurrent,"Playback Singer(FeMale)","","",""];
 	selectedIds[_slPrev] = Array();
 	selectedIds[_slPrev].push(tempArr);
-	$('input:checkbox[name="rdoPlaybackSingerFeMale"]').prop('checked', false);
-	$('#dtPlaybackSingerFeMale tbody tr').removeClass('rowSelected');
+	$('input:checkbox[name="rdoPlaybackSingerFemale"]').prop('checked', false);
+	$('#dtPlaybackSingerFemale tbody tr').removeClass('rowSelected');
 }
 	
 

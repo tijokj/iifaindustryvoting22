@@ -64,8 +64,8 @@ var dtMusicDirection = filter(dtPopularAwards,7);
 var dtBestStory_1 = filter(dtPopularAwards,8);
 var dtBestStory_2 = filter(dtPopularAwards,9);
 var dtLyrics = filter(dtPopularAwards,10);
-var dtPlaybackSingerMale = filter(dtPopularAwards,11);
-var dtPlaybackSingerFemale = filter(dtPopularAwards,12);
+var dtPlaybackSingerFemale = filter(dtPopularAwards,11);
+var dtPlaybackSingerMale = filter(dtPopularAwards,12);
 
 var dtCinematography = filter(dtTechnicalAwards,13);
 var dtScreenplay = filter(dtTechnicalAwards,14);
@@ -87,8 +87,8 @@ $(document).ready(function(){
 	$('<audio id="errAudio"><source src="sounds/notify.ogg" type="audio/ogg"><source src="sounds/notify.mp3" type="audio/mpeg"><source src="sounds/notify.wav" type="audio/wav"></audio>').appendTo('body');
 	//$('<audio id="errAudio"><source src="sounds/computer_error.ogg" type="audio/ogg"><source src="sounds/computer_error.mp3" type="audio/mpeg"><source src="sounds/computer_error.aac" type="audio/aac"></audio>').appendTo('body');
 	
-	//$("#lnkSelected").html("IIFA AWARDS 2020");
-	$("#lnkSelected").html("POPULAR AWARDS 2020");
+	//$("#lnkSelected").html("IIFA AWARDS 2022");
+	$("#lnkSelected").html("POPULAR AWARDS 2022");
 	
 	$.alert({
 		title: "<i class='text-small text-warning glyphicon glyphicon-info-sign'></i> &nbsp; GUIDELINES FOR CASTING YOUR VOTE",
@@ -137,7 +137,13 @@ $(document).ready(function(){
 	$("#btnPOPSkip_1_19").click(function(e){e.preventDefault(); $(".next_click").html("");_dtBackgroundScore(true);		_showHeading(1,20);}); $("#btnPOPNext_1_19").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[18],19)){return;} 	_dtBackgroundScore(false);	  _showHeading(1,20);});$("#btnPOPSubmit_1_19").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(19,_canSkipThis);});
 	$("#btnPOPSkip_1_20").click(function(e){e.preventDefault(); $(".next_click").html("");_dtSpecialEffects(true);		_showHeading(1,21);}); $("#btnPOPNext_1_20").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[19],20)){return;} 	_dtSpecialEffects(false);	  _showHeading(1,21);});$("#btnPOPSubmit_1_20").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(20,_canSkipThis);});
 	
-	$("#btnPOPSkip_1_21").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory2(21,_canSkipThis);}); $("#btnPOPNext_1_21").click(function(e){e.preventDefault(); $(".next_click").html(""); if(_verification(selectedIds[20],21)){return;} _SummaryPopularCategory(20,_cannotSkipThis);_showHeading(1,21);});$("#btnPOPSubmit_1_21").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(21,_canSkipThis);});
+	//SUmmary Add/Edit/Update
+	$("#btnPOPSkip_1_21").click(function(e){e.preventDefault(); $(".next_click").html("");
+		_SummaryPopularCategory2(21,_canSkipThis);}); 
+	$("#btnPOPNext_1_21").click(function(e){e.preventDefault(); $(".next_click").html(""); 
+	if(_verification(selectedIds[20],21)){return;} 
+		_SummaryPopularCategory(21,_cannotSkipThis);_showHeading(1,22);});
+	$("#btnPOPSubmit_1_21").click(function(e){e.preventDefault(); $(".next_click").html("");_SummaryPopularCategory(21,_canSkipThis);});
 	
 	//Ends Page moving scripts	
 	
@@ -253,9 +259,9 @@ function _blockMultipleCheck(_array,_pageIndex,_selItemCnt){
 
 function _showHeading(_category,_pageIndex){
 	if(_pageIndex<=12)
-		$("#lnkSelected").html("POPULAR AWARDS 2020");
+		$("#lnkSelected").html("POPULAR AWARDS 2022");
 	else
-		$("#lnkSelected").html("TECHNICAL AWARDS 2020");
+		$("#lnkSelected").html("TECHNICAL AWARDS 2022");
 		
 	//Shows alert always 
 	//for Popular - Updated for V2
@@ -274,9 +280,9 @@ function _showHeading(_category,_pageIndex){
 function _editItem(_recID,_category,_pageIndex){
 	
 	if(_pageIndex<=12)
-		$("#lnkSelected").html("POPULAR AWARDS 2020");
+		$("#lnkSelected").html("POPULAR AWARDS 2022");
 	else
-		$("#lnkSelected").html("TECHNICAL AWARDS 2020");
+		$("#lnkSelected").html("TECHNICAL AWARDS 2022");
 		
 	$("div.toolbar2").html(_pageIndex + ". "+ _arrPopularCategory[_pageIndex-1]);		
 	
@@ -306,8 +312,8 @@ function divertEditOption(_pageIndex){
 	
 	if(_pageIndex==10)_dtLyrics(false);
 	
-	if(_pageIndex==11)_dtPlaybackSingerMale(false);
-	if(_pageIndex==12)_dtPlaybackSingerFemale(false);
+	if(_pageIndex==11)_dtPlaybackSingerFemale(false);
+	if(_pageIndex==12)_dtPlaybackSingerMale(false);
 
 	// TECHNICAL CATEGORY
 	if(_pageIndex==13)_dtCinematography(false,false);
@@ -370,7 +376,7 @@ function _savePopularCategory(listArr,_pageIndex){
 				if(_isCompleated == 2){
 					$("#divLogout").show();
 					$("#spLogout").show();
-					$(".toolbar2").html("IIFA AWARDS 2020");
+					$(".toolbar2").html("IIFA AWARDS 2022");
 					window.setInterval(function () {var iTimeRemaining = $("#spLogout").html(); iTimeRemaining = eval(iTimeRemaining); if (iTimeRemaining <= 0) {location.href = "logout.php";}else{$("#spLogout").html(iTimeRemaining - 1);}}, 1000);
 				}
 				

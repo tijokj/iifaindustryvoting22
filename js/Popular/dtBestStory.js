@@ -16,8 +16,6 @@ var _slNext = 8;	//Same for the next click function too need to update
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoMusicDirection"]').prop('checked', false);
 		$('#dtMusicDirection tbody tr').removeClass('rowSelected');
-	}else{
-			
 	 }
 
 	var dt_Table = $('#dtBestStory_1').DataTable( {
@@ -48,7 +46,7 @@ var _slNext = 8;	//Same for the next click function too need to update
 		"createdRow": function ( row, data, index ) {
 						var _datalinkCheck ='';
 						
-						_datalinkCheck +='<input class="option-input checkbox" id="'+ data[0] +'" type="checkbox" value="'+ data[0] +'" name="rdoBestStory1" />';
+						_datalinkCheck +='<input class="option-input checkbox" id="'+ data[0] +'" type="checkbox" value="'+ data[0] +'" name="rdoBestStory_1" />';
 						_datalinkCheck +='<label id="'+ data[0] +'"></label>';
 						$('td', row).eq(0).html(_datalinkCheck);
 		}

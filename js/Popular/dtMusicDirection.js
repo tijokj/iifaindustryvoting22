@@ -15,10 +15,6 @@ $("#Page_1_"+_slNext).show();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoSupportingRoleMale"]').prop('checked', false);
 		$('#dtSupportingRoleMale tbody tr').removeClass('rowSelected');
-		
-		
-	}else{
-					
 	 }
 
 	var dt_Table = $('#dtMusicDirection').DataTable( {

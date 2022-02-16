@@ -8,7 +8,7 @@ function _dtSoundDesign(_isSkiped){
 	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> SoundDesign");
 	if(_isSkiped){
-		var tempArr = ["",0,1,16,"Choreography","","",""];
+		var tempArr = ["",0,1,_slCurrent,"Choreography","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoChoreography"]').prop('checked', false);

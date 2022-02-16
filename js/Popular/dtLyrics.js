@@ -12,8 +12,8 @@ $("#Page_1_"+_slNext).show();
 		var tempArr = ["",0,1,_slCurrent,"Best Story (Adapted)","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
-		$('input:checkbox[name="rdoBestStory2"]').prop('checked', false);
-		$('#dtBestStory tbody tr').removeClass('rowSelected');
+		$('input:checkbox[name="rdoBestStory_2"]').prop('checked', false);
+		$('#dtBestStory_2 tbody tr').removeClass('rowSelected');
 	}else{
 				
 	 }

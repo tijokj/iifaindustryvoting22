@@ -8,7 +8,7 @@ function _dtEditing(_isSkiped){
 	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Editing");
 	if(_isSkiped){
-		var tempArr = ["",0,1,14,"Dialogue","","",""];
+		var tempArr = ["",0,1,_slCurrent,"Dialogue","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoDialogue"]').prop('checked', false);

@@ -8,7 +8,7 @@ function _dtBackgroundScore(_isSkiped){
 	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Background Score");
 	if(_isSkiped){
-		var tempArr = ["",0,1,18,"Sound Mixing","","",""];
+		var tempArr = ["",0,1,_slCurrent,"Sound Mixing","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoSoundMixing"]').prop('checked', false);

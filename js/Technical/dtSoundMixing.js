@@ -8,7 +8,7 @@ function _dtSoundMixing(_isSkiped){
 	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Production Sound Mixer");
 	if(_isSkiped){
-		var tempArr = ["",0,1,17,"Sound Design","","",""];
+		var tempArr = ["",0,1,_slCurrent,"Sound Design","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoSoundDesign"]').prop('checked', false);

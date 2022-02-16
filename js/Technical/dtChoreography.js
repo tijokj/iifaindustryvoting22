@@ -8,7 +8,7 @@ function _dtChoreography(_isSkiped){
 	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Choreography");
 	if(_isSkiped){
-		var tempArr = ["",0,1,15,"Editing","","",""];
+		var tempArr = ["",0,1,_slCurrent,"Editing","","",""];
 		selectedIds[_slPrev] = Array();
 		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoEditing"]').prop('checked', false);
