@@ -1,14 +1,16 @@
 function _dtBackgroundScore(_isSkiped){
-	/* ADDED FOR V2 */
-	_showHeading(1,19);
-	
-	$("#Page_1_18").hide();
-	$("#Page_1_19").show();
+	var _slPrev = 18;	
+	var _slCurrent = 19;
+	var _slNext = 20;		//Same for the next click function too need to update
+
+	_showHeading(1,_slNext);
+	$("#Page_1_"+_slCurrent).hide();
+	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Background Score");
 	if(_isSkiped){
 		var tempArr = ["",0,1,18,"Sound Mixing","","",""];
-		selectedIds[17] = Array();
-		selectedIds[17].push(tempArr);
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoSoundMixing"]').prop('checked', false);
 		$('#dtSoundMixing tbody tr').removeClass('rowSelected');
 	}else{}
@@ -55,8 +57,8 @@ function _dtBackgroundScore(_isSkiped){
 		$row.addClass('rowSelected');
 		}		
 		
-		var _slCurrent = 19;
-		ResetselectedIDsIndex(_slCurrent-1);
+		var _slNext = 20;
+		ResetselectedIDsIndex(_slNext-1);
 		var selectedElement = Array();var _selItemCnt = 0;
 		$(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 		var $row = $(this).closest('tr');
@@ -64,8 +66,8 @@ function _dtBackgroundScore(_isSkiped){
 		var _dataArr = [data[0],data[1],data[2],data[3],"Background Score",data[4],data[5],data[6]];
 		if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		}));
-		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
-		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 		
 		});
 		}		

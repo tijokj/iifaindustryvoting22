@@ -1,14 +1,16 @@
 function _dtSoundDesign(_isSkiped){
-	/* ADDED FOR V2 */
-	_showHeading(1,17);
-	
-	$("#Page_1_16").hide();
-	$("#Page_1_17").show();
+	var _slPrev = 16;	
+	var _slCurrent = 17;
+	var _slNext = 18;		//Same for the next click function too need to update
+
+	_showHeading(1,_slNext);
+	$("#Page_1_"+_slCurrent).hide();
+	$("#Page_1_"+_slNext).show();
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> SoundDesign");
 	if(_isSkiped){
 		var tempArr = ["",0,1,16,"Choreography","","",""];
-		selectedIds[15] = Array();
-		selectedIds[15].push(tempArr);
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoChoreography"]').prop('checked', false);
 		$('#dtChoreography tbody tr').removeClass('rowSelected');
 	}else{}
@@ -54,8 +56,8 @@ function _dtSoundDesign(_isSkiped){
 		dt_Table.$('tr.rowSelected').removeClass('rowSelected');
 		$row.addClass('rowSelected');
 		}	
-		var _slCurrent = 17;
-		ResetselectedIDsIndex(_slCurrent-1);
+		var _slNext = 18;
+		ResetselectedIDsIndex(_slNext-1);
 		var selectedElement = Array();var _selItemCnt = 0;
 		$(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 		var $row = $(this).closest('tr');
@@ -63,8 +65,8 @@ function _dtSoundDesign(_isSkiped){
 		var _dataArr = [data[0],data[1],data[2],data[3],"Sound Design",data[4],data[5],data[6]];
 		if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		}));
-		if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
-		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+		if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 		
 		});
 		}

@@ -1,15 +1,18 @@
 function _dtScreenplay(_isSkiped){
 	
-	/* ADDED FOR V2 */
-	_showHeading(1,13);
-	
-	$("#Page_1_12").hide();
-	$("#Page_1_13").show();
+var _slPrev = 12;	
+var _slCurrent = 13;
+var _slNext = 14;		//Same for the next click function too need to update
+
+_showHeading(1,_slNext);
+$("#Page_1_"+_slCurrent).hide();
+$("#Page_1_"+_slNext).show();
+
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Screenplay");
 	if(_isSkiped){
-		var tempArr = ["",0,1,12,"Cinematography","","",""];
-		selectedIds[11] = Array();
-		selectedIds[11].push(tempArr);
+		var tempArr = ["",0,1,_slCurrent,"Cinematography","","",""];
+		selectedIds[_slPrev] = Array();
+		selectedIds[_slPrev].push(tempArr);
 		$('input:checkbox[name="rdoCinematography"]').prop('checked', false);
  		$('#dtCinematography tbody tr').removeClass('rowSelected');
 	}else{
@@ -60,8 +63,8 @@ function _dtScreenplay(_isSkiped){
 			$row.addClass('rowSelected');
 		}	
 		
-		 var _slCurrent = 13;
-		ResetselectedIDsIndex(_slCurrent-1);
+		 var _slNext = 14;
+		ResetselectedIDsIndex(_slNext-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -69,8 +72,8 @@ function _dtScreenplay(_isSkiped){
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Screenplay",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
-		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}
+		 if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}
 		 
  });
 }

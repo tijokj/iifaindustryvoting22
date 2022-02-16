@@ -1,14 +1,17 @@
 function _dtDialogue(_isSkiped){
-	/* ADDED FOR V2 */
-	_showHeading(1,14);
+	var _slPrev = 13;	
+	var _slCurrent = 14;
+	var _slNext = 15;		//Same for the next click function too need to update
 	
-	$("#Page_1_13").hide();
-	$("#Page_1_14").show();
+	_showHeading(1,_slNext);
+	$("#Page_1_"+_slCurrent).hide();
+	$("#Page_1_"+_slNext).show();	
+
 	//$("#lnkSelected").html("TECHNICAL AWARDS <i class='glyphicon glyphicon-chevron-right'></i> Dialogue");
 		if(_isSkiped){
-			var tempArr = ["",0,1,13,"Screenplay","","",""];
-			selectedIds[12] = Array();
-		selectedIds[12].push(tempArr);
+			var tempArr = ["",0,1,_slCurrent,"Screenplay","","",""];
+			selectedIds[_slPrev] = Array();
+			selectedIds[_slPrev].push(tempArr);
 			$('input:checkbox[name="rdoScreenplay"]').prop('checked', false);
 			$('#dtScreenplay tbody tr').removeClass('rowSelected');
 		}else{
@@ -58,8 +61,8 @@ $('#dtDialogue tbody').on('click','input[type="checkbox"]', function (e) {
 			$row.addClass('rowSelected');
 		}		
 		 
-		var _slCurrent = 14;
-		ResetselectedIDsIndex(_slCurrent-1);
+		var _slNext = 15;
+		ResetselectedIDsIndex(_slNext-1);
 		 var selectedElement = Array();var _selItemCnt = 0;
 		 $(dt_Table.$('input[type="checkbox"]:checked').map(function(){
 			 var $row = $(this).closest('tr');
@@ -67,8 +70,8 @@ $('#dtDialogue tbody').on('click','input[type="checkbox"]', function (e) {
 			 var _dataArr = [data[0],data[1],data[2],data[3],"Dialogue",data[4],data[5],data[6]];
 			 if(_selItemCnt<1)selectedElement.push(_dataArr);_selItemCnt=_selItemCnt+1;
 		 }));
-		 if(selectedElement.length>0)selectedIds[_slCurrent-1]=selectedElement;
-		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slCurrent);return false;}		
+		 if(selectedElement.length>0)selectedIds[_slNext-1]=selectedElement;
+		 if(_selItemCnt>1){_blockMultipleCheck(selectedElement,_slNext);return false;}		
 		 
  });
 }
